@@ -3,7 +3,8 @@ unit uDataStructures;
 interface
 
 uses
-  uArray;
+  uArray,
+  uList;
 
 type
   TDataStructure = class(TObject)
@@ -11,13 +12,15 @@ type
     class function NewMutableArray<T>(const Items: TArray<T>): IArray<T>; overload;
     class function NewImmutableArray<T>: IArray<T>; overload;
     class function NewImmutableArray<T>(const Items: TArray<T>): IArray<T>; overload;
+    class function NewSinglyLinkedList<T>: IList<T>;
   end;
 
 implementation
 
 uses
   uImmutableArray,
-  uMutableArray;
+  uMutableArray,
+  uSinglyLinkedList;
 
 { TDataStructure }
 
@@ -41,6 +44,11 @@ class function TDataStructure.NewImmutableArray<T>(
   const Items: TArray<T>): IArray<T>;
 begin
   Result := TImmutableArray<T>.Create(Items);
+end;
+
+class function TDataStructure.NewSinglyLinkedList<T>: IList<T>;
+begin
+  Result := TSinglyLinkedList<T>.Create;
 end;
 
 end.

@@ -11,7 +11,6 @@ uses
   DUnitX.Loggers.Xml.NUnit,
   {$ELSE}
   DUnitX.Loggers.Console,
-  DUnitX.Loggers.Xml.NUnit,
   {$ENDIF }
   DUnitX.TestFramework,
   uImmutableArray in '..\source\uImmutableArray.pas',
@@ -19,7 +18,11 @@ uses
   uDataStructures in '..\source\uDataStructures.pas',
   uArray in '..\source\uArray.pas',
   uMutableArray in '..\source\uMutableArray.pas',
-  uMutableArrayTest in 'uMutableArrayTest.pas';
+  uMutableArrayTest in 'uMutableArrayTest.pas',
+  uSinglyLinkedListTest in 'uSinglyLinkedListTest.pas',
+  uList in '..\source\uList.pas',
+  uSinglyLinkedList in '..\source\uSinglyLinkedList.pas';
+
 
 {$IFNDEF TESTINSIGHT}
 var
