@@ -15,6 +15,8 @@ type
     procedure add_item_to_array;
     [Test]
     procedure add_item_preserves_original_array;
+    [Test]
+    procedure create_from_array;
   end;
 
 implementation
@@ -43,6 +45,14 @@ begin
   EmptyArray := TDataStructure.NewArray<string>;
   OneItemArray := EmptyArray.Add('item');
   Assert.AreEqual(1, OneItemArray.Count);
+end;
+
+procedure TArrayTest.create_from_array;
+var
+  ThreeItemArray: IArray<Integer>;
+begin
+  ThreeItemArray := TDataStructure.NewArray<Integer>([1, 2, 3]);
+  Assert.AreEqual(3, ThreeItemArray.Count);
 end;
 
 procedure TArrayTest.new_array_is_empty;
