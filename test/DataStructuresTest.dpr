@@ -8,14 +8,18 @@ uses
   System.SysUtils,
   {$IFDEF TESTINSIGHT}
   TestInsight.DUnitX,
+  DUnitX.Loggers.Xml.NUnit,
   {$ELSE}
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   {$ENDIF }
   DUnitX.TestFramework,
+  uImmutableArray in '..\source\uImmutableArray.pas',
+  uImmutableArrayTest in 'uImmutableArrayTest.pas',
+  uDataStructures in '..\source\uDataStructures.pas',
   uArray in '..\source\uArray.pas',
-  uArrayTest in 'uArrayTest.pas',
-  uDataStructures in '..\source\uDataStructures.pas';
+  uMutableArray in '..\source\uMutableArray.pas',
+  uMutableArrayTest in 'uMutableArrayTest.pas';
 
 {$IFNDEF TESTINSIGHT}
 var
