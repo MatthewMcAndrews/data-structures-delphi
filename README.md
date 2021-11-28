@@ -1,5 +1,7 @@
 # data-structures-delphi
-A Library of Data Structures Written in Delphi
+A Library of Generic, Interfaced, Data Structures Written in Delphi
+
+All structures are generic.
 
 All structures are accessible via interfaces for automatic reference counting.
 * This simplifies memory management as there is no need to explicitly destroy things
