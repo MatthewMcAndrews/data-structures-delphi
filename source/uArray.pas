@@ -7,7 +7,8 @@ uses
 
 type
   IArray<T> = interface(IInvokable) ['{30A58FAA-F97C-41CF-BD0B-C718B80A4FBA}']
-    function Add(const Item: T): IArray<T>;
+    function Add(const Item: T): IArray<T>; overload;
+    function Add(const Items: TArray<T>): IArray<T>; overload;
     function GetCount: Integer;
     property Count: Integer read GetCount;
   end;
@@ -17,7 +18,8 @@ type
   private
     Items: TArray<T>;
   public
-    function Add(const Item: T): IArray<T>;
+    function Add(const Item: T): IArray<T>; overload;
+    function Add(const Items: TArray<T>): IArray<T>; overload;
     function GetCount: Integer;
     constructor Create(const Items: TArray<T>); overload;
   end;
@@ -25,6 +27,14 @@ type
 implementation
 
 { TImmutableArray<T> }
+
+function TImmutableArray<T>.Add(const Items: TArray<T>): IArray<T>;
+var
+  NewItems: TArray<T>;
+begin
+  NewItems := Self.Items + Items;
+  Result := TImmutableArray<T>.Create(NewItems);
+end;
 
 constructor TImmutableArray<T>.Create(const Items: TArray<T>);
 begin

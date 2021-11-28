@@ -14,6 +14,8 @@ type
     [Test]
     procedure add_item_to_array;
     [Test]
+    procedure add_items_to_array;
+    [Test]
     procedure add_item_preserves_original_array;
     [Test]
     procedure create_from_array;
@@ -27,6 +29,16 @@ uses
   System.Generics.Collections;
 
 { TArrayTest }
+
+procedure TArrayTest.add_items_to_array;
+var
+  EmptyArray: IArray<Integer>;
+  TwoItemArray: IArray<Integer>;
+begin
+  EmptyArray := TDataStructure.NewArray<Integer>;
+  TwoItemArray := EmptyArray.Add([1, 2]);
+  Assert.AreEqual(2, TwoItemArray.Count);
+end;
 
 procedure TArrayTest.add_item_preserves_original_array;
 var
