@@ -91,6 +91,9 @@
         <DCCReference Include="uSinglyLinkedListTest.pas"/>
         <DCCReference Include="..\source\uList.pas"/>
         <DCCReference Include="..\source\uSinglyLinkedList.pas"/>
+        <DCCReference Include="uSinglyLinkedNodeTest.pas"/>
+        <DCCReference Include="..\source\uNode.pas"/>
+        <DCCReference Include="..\source\uSinglyLinkedNode.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

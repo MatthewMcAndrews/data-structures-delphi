@@ -21,9 +21,12 @@ uses
   uMutableArrayTest in 'uMutableArrayTest.pas',
   uSinglyLinkedListTest in 'uSinglyLinkedListTest.pas',
   uList in '..\source\uList.pas',
-  uSinglyLinkedList in '..\source\uSinglyLinkedList.pas';
+  uSinglyLinkedList in '..\source\uSinglyLinkedList.pas',
+  uSinglyLinkedNodeTest in 'uSinglyLinkedNodeTest.pas',
+  uNode in '..\source\uNode.pas',
+  uSinglyLinkedNode in '..\source\uSinglyLinkedNode.pas';
 
-
+//------------------------------------------------------------------------------
 {$IFNDEF TESTINSIGHT}
 var
   Runner: ITestRunner;
