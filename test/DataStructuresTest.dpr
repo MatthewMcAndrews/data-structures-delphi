@@ -14,7 +14,8 @@ uses
   {$ENDIF }
   DUnitX.TestFramework,
   uArray in '..\source\uArray.pas',
-  uArrayListTest in 'uArrayListTest.pas';
+  uArrayTest in 'uArrayTest.pas',
+  uDataStructures in '..\source\uDataStructures.pas';
 
 {$IFNDEF TESTINSIGHT}
 var
@@ -24,9 +25,9 @@ var
   nunitLogger : ITestLogger;
 {$ENDIF}
 begin
-{$IFDEF TESTINSIGHT}
+  {$IFDEF TESTINSIGHT}
   TestInsight.DUnitX.RunRegisteredTests;
-{$ELSE}
+  {$ELSE}
   try
     //Check command line options, will exit if invalid
     TDUnitX.CheckCommandLine;
