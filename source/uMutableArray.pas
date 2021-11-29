@@ -7,6 +7,8 @@ uses
 
 type
   IMutableArray<T> = interface(IArray<T>) ['{9EAC07ED-6033-4507-A3E7-AD3FB0B5BAB7}']
+    procedure SetItem(Index: Integer; Value: T);
+    property Items[Index: Integer]: T read GetItem write SetItem; default;
   end;
 
 type
@@ -17,6 +19,8 @@ type
     function Add(const Item: T): IArray<T>; overload;
     function Add(const Items: TArray<T>): IArray<T>; overload;
     function GetCount: Integer;
+    function GetItem(Index: Integer): T;
+    procedure SetItem(Index: Integer; Value: T);
     constructor Create(const Items: TArray<T>); overload;
   end;
 
@@ -48,6 +52,16 @@ end;
 function TMutableArray<T>.GetCount: Integer;
 begin
   Result := Length(Items);
+end;
+
+function TMutableArray<T>.GetItem(Index: Integer): T;
+begin
+  Result := Items[Index];
+end;
+
+procedure TMutableArray<T>.SetItem(Index: Integer; Value: T);
+begin
+  Items[Index] := Value;
 end;
 
 end.

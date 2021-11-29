@@ -17,13 +17,18 @@ type
     procedure add_items_to_array;
     [Test]
     procedure create_from_array;
+    [Test]
+    procedure access_item_by_index;
+    [Test]
+    procedure mutable_by_index;
   end;
 
 implementation
 
 uses
   uArray,
-  uDataStructures;
+  uDataStructures,
+  uMutableArray;
 
 { TMutableArrayTest }
 
@@ -37,6 +42,15 @@ begin
   Assert.AreEqual(2, TDataStructure.NewMutableArray<Integer>([0, 1]).Count);
 end;
 
+procedure TMutableArrayTest.mutable_by_index;
+var
+  Value: IMutableArray<Integer>;
+begin
+  Value := TDataStructure.NewMutableArray<Integer>([0, 1, 2]) as IMutableArray<Integer>;
+  Value[1] := 2;
+  Assert.AreEqual(2, Value[1]);
+end;
+
 procedure TMutableArrayTest.add_item_to_array;
 var
   Value: IArray<Integer>;
@@ -44,6 +58,14 @@ begin
   Value := TDataStructure.NewMutableArray<Integer>;
   Assert.AreEqual(1, Value.Add(0).Count);
   Assert.AreEqual(1, Value.Count);
+end;
+
+procedure TMutableArrayTest.access_item_by_index;
+var
+  Value: IArray<Integer>;
+begin
+  Value := TDataStructure.NewMutableArray<Integer>([0, 1, 2]);
+  Assert.AreEqual(1, Value[1]);
 end;
 
 procedure TMutableArrayTest.add_items_to_array;

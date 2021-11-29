@@ -18,6 +18,7 @@ type
     function Add(const Item: T): IArray<T>; overload;
     function Add(const Items: TArray<T>): IArray<T>; overload;
     function GetCount: Integer;
+    function GetItem(Index: Integer): T;
     constructor Create(const Items: TArray<T>); overload;
   end;
 
@@ -53,6 +54,11 @@ end;
 function TImmutableArray<T>.GetCount: Integer;
 begin
   Result := Length(Items);
+end;
+
+function TImmutableArray<T>.GetItem(Index: Integer): T;
+begin
+  Result := Items[Index];
 end;
 
 end.
