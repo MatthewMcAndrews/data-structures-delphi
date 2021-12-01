@@ -20,7 +20,6 @@ uses
   uMutableArray in '..\source\uMutableArray.pas',
   uMutableArrayTest in 'uMutableArrayTest.pas',
   uSinglyLinkedListTest in 'uSinglyLinkedListTest.pas',
-  uList in '..\source\uList.pas',
   uSinglyLinkedList in '..\source\uSinglyLinkedList.pas',
   uSinglyLinkedNodeTest in 'uSinglyLinkedNodeTest.pas',
   uNode in '..\source\uNode.pas',

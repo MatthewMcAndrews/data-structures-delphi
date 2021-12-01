@@ -89,7 +89,6 @@
         <DCCReference Include="..\source\uMutableArray.pas"/>
         <DCCReference Include="uMutableArrayTest.pas"/>
         <DCCReference Include="uSinglyLinkedListTest.pas"/>
-        <DCCReference Include="..\source\uList.pas"/>
         <DCCReference Include="..\source\uSinglyLinkedList.pas"/>
         <DCCReference Include="uSinglyLinkedNodeTest.pas"/>
         <DCCReference Include="..\source\uNode.pas"/>

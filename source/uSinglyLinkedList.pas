@@ -3,23 +3,31 @@ unit uSinglyLinkedList;
 interface
 
 uses
-  uList,
   uSinglyLinkedNode;
 
 type
-  ISinglyLinkedList<T> = interface(IList<T>) ['{3AD41316-D33B-433D-9FC3-7E19123EAD87}']
+  ISinglyLinkedList<T> = interface(IInvokable) ['{3AD41316-D33B-433D-9FC3-7E19123EAD87}']
+    function GetCount: Integer;
+    function GetItem(Index: Integer): T;
+    function Prepend(const Item: T): ISinglyLinkedList<T>;
+    property Count: Integer read GetCount;
+    property Item[Index: Integer]: T read GetItem; default;
   end;
 
 type
-  TSinglyLinkedList<T> = class(TInterfacedObject, IList<T>, ISinglyLinkedList<T>)
+  TSinglyLinkedList<T> = class(TInterfacedObject, ISinglyLinkedList<T>)
   private
     Head: ISinglyLinkedNode<T>;
   public
     function GetCount: Integer;
-    function Prepend(const Item: T): IList<T>;
+    function GetItem(Index: Integer): T;
+    function Prepend(const Item: T): ISinglyLinkedList<T>;
   end;
 
 implementation
+
+uses
+  System.SysUtils;
 
 { TSinglyLinkedList<T> }
 
@@ -39,7 +47,25 @@ begin
   end;
 end;
 
-function TSinglyLinkedList<T>.Prepend(const Item: T): IList<T>;
+function TSinglyLinkedList<T>.GetItem(Index: Integer): T;
+var
+  Current: ISinglyLinkedNode<T>;
+begin
+  if (Index < 0) or (GetCount < Index) then begin
+    raise Exception.Create('Index Out Of Bounds.');
+  end;
+  if not Assigned(Head) then begin
+    raise Exception.Create('Index Out Of Bounds.');
+  end;
+  Current := Head;
+  while Index > 1 do begin
+    Dec(Index);
+    Current := Current.Next;
+  end;
+  Result := Current.Data;
+end;
+
+function TSinglyLinkedList<T>.Prepend(const Item: T): ISinglyLinkedList<T>;
 var
   NewNode: ISinglyLinkedNode<T>;
 begin
